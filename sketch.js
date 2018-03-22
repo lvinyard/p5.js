@@ -86,28 +86,6 @@ show() {
 	//image(flower, this.x, this.y)
 }
 
-//////////////////
-
-
-
-
-
-
-//HEllo my name is lucashello my name is luicas
-////////
-
-/////
-
-
-
-
-
-
-
-
-///////
-
-
-///////
+//Hello thius is me ur looking for
 
 }
