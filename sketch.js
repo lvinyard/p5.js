@@ -1,3 +1,4 @@
+//Preload vars and function
 var img = [];
 var sounds = [];
 
@@ -8,11 +9,12 @@ function preload() {
 	sounds[1] = loadSound("sounds/pew.mp3");
 }
 
+//VARS
 var ship;
 var enemies = [];
 var bullets = [];
 
-
+//Create Canvas and adds ship
 function setup() {
 	createCanvas(600,400);
 	ship = new Ship();
@@ -21,16 +23,18 @@ function setup() {
  	}
 }
 
+//Function draw
 
 function draw() {
 background(51);
 ship.show();
 ship.move();
 
+	//calls to show and move bullets
 		for (var i =0; i <bullets.length ; i++) {
 				bullets[i].show();
 				bullets[i].move();
-
+  //checks if bullets and enemies collide and then calls to splice them, plays kappa sound
 				for (var j =0; j <enemies.length ; j++) {
 						if (bullets[i].hits(enemies[j])) {
 							enemies[j].die();
@@ -40,6 +44,8 @@ ship.move();
 						}
 				}
 		}
+
+		//checks to see if enemies get to edge of screen, then moves them down and chnages direction
 			var edge= false;
 		for (var i =0; i <enemies.length ; i++) {
 				enemies[i].show();
@@ -59,6 +65,8 @@ ship.move();
 			}
 
 
+
+
 			for (var i =bullets.length-1; i >=0 ; i--) {
 				if(bullets[i].toDelete){
 					bullets.splice(i,1);
@@ -73,16 +81,21 @@ ship.move();
 
 }
 
+//CONTROLS
 
-
+	//If let go of arrow key then ship stops
 function keyReleased(){
 	if(key!== ' ')
 	ship.setDir(0);
 }
 
+	//Sets bounds for ships x movement
+	if(ship.x > width-25 || ship.x <25){
+				ship.setDir(0);
+			}
 
 
-
+	//If space key is hit, fire bullet and play pew sound
 
 function keyPressed() {
 
@@ -91,6 +104,8 @@ function keyPressed() {
 		bullets.push(bullet);
 	sounds[1].play();
 	}
+
+	//Uses right and left arrows to change direction
 
 	if (keyCode === RIGHT_ARROW) {
 		ship.setDir(1);
