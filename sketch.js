@@ -5,9 +5,8 @@ function preload() {
   img[0] = loadImage('images/zach2.png');
 	img[1] = loadImage('images/tractor1.png');
 	sounds[0] = loadSound("sounds/kappa_2.mp3");
+	sounds[1] = loadSound("sounds/pew.mp3");
 }
-
-
 
 var ship;
 var enemies = [];
@@ -17,7 +16,6 @@ var bullets = [];
 function setup() {
 	createCanvas(600,400);
 	ship = new Ship();
-	//bullet = new bullet(width/2,height/2);
 	for (var i =0; i <5 ; i++) {
 			enemies[i] = new enemy(i*80+80,60);
  	}
@@ -38,6 +36,7 @@ ship.move();
 							enemies[j].die();
 							 bullets [i].done();
 							console.log("HIT");
+							sounds[0].play();
 						}
 				}
 		}
@@ -90,7 +89,7 @@ function keyPressed() {
 	if (key === ' '){
 		var bullet = new Bullet(ship.x,height);
 		bullets.push(bullet);
-	sounds[0].play();
+	sounds[1].play();
 	}
 
 	if (keyCode === RIGHT_ARROW) {
