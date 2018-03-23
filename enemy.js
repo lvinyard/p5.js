@@ -7,7 +7,7 @@ function preload() {
 function enemy(x,y) {
  this.x = x;
  this.y = y;
- this.r = 25;
+ this.r = 13;
 
  this.xdir =1;
 
@@ -19,9 +19,9 @@ function enemy(x,y) {
  }
 
 this.show = function() {
-  ellipse(this.x+53,this.y+50, this.r*2,this.r*2);
+  ellipse(this.x+25,this.y+25, this.r*2,this.r*2);
   image(img,this.x,this.y);
-  img.resize(100,100);
+  img.resize(50,50);
 
 
   }
@@ -32,7 +32,7 @@ this.shiftDown = function() {
 }
 
 this.move = function() {
-  this.x = this.x +this.xdir;
+  this.x = this.x +this.xdir*4;
 }
 
 

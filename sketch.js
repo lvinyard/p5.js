@@ -37,7 +37,10 @@ ship.move();
 
 				if(enemies[i].x > width||enemies[i].x <0){
 					edge = true;
-				}
+			  	}
+			if(enemies[i].y == 346){
+				//	youlose();
+			}
 		}
 			if(edge) {
 			for (var i = 0; i <enemies.length;i++){
@@ -51,7 +54,17 @@ ship.move();
 					bullets.splice(i,1);
 				}
 			}
+				for (var i =enemies.length-1; i >=0 ; i--) {
+					if(enemies[i].toDelete){
+						enemies.splice(i,1);
+					}
+				}
+
+
 }
+
+
+
 function keyReleased(){
 	if(key!== ' ')
 	ship.setDir(0);

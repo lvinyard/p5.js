@@ -19,7 +19,7 @@ this.show = function() {
   }
 
   this.hits = function(enemy){
-    var d = dist(this.x,this.y, enemy.x+53,enemy.y+50 );
+    var d = dist(this.x,this.y, enemy.x+13,enemy.y+25 );
     if (d < this.r + enemy.r) {
       return true;
     }else {
