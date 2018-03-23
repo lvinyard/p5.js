@@ -1,10 +1,10 @@
 var img = [];
-var sounds;
+var sounds = [];
 
 function preload() {
   img[0] = loadImage('images/zach2.png');
 	img[1] = loadImage('images/tractor1.png');
-	sounds = loadSound("sounds/kappa_2.mp3");
+	sounds[0] = loadSound("sounds/kappa_2.mp3");
 }
 
 
@@ -90,7 +90,7 @@ function keyPressed() {
 	if (key === ' '){
 		var bullet = new Bullet(ship.x,height);
 		bullets.push(bullet);
-		sounds.play();
+	sounds[0].play();
 	}
 
 	if (keyCode === RIGHT_ARROW) {
