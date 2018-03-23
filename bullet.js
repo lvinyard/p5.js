@@ -1,6 +1,4 @@
 
-
-
 function Bullet(x,y) {
  this.x = x;
  this.y = y;
@@ -13,8 +11,10 @@ function Bullet(x,y) {
 
 this.show = function() {
   noStroke();
-  fill(150,0,255);
-  ellipse(this.x,this.y,this.r*2,this.r*2);
+  noFill();
+  ellipse(this.x+10,this.y+20,this.r*2,this.r*2);
+  image(img[1],this.x,this.y);
+  img[1].resize(40,40);
 
   }
 

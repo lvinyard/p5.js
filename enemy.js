@@ -1,8 +1,3 @@
-var img;
-
-function preload() {
-  img = loadImage('images/zach2.png');
-}
 
 function enemy(x,y) {
  this.x = x;
@@ -20,8 +15,8 @@ function enemy(x,y) {
 
 this.show = function() {
   ellipse(this.x+25,this.y+25, this.r*2,this.r*2);
-  image(img,this.x,this.y);
-  img.resize(50,50);
+  image(img[0],this.x,this.y);
+  img[0].resize(60,60);
 
 
   }
